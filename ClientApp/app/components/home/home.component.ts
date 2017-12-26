@@ -1,7 +1,7 @@
 ﻿import { Component, Input } from '@angular/core';
 import { UserService } from '../Services/UserService';
 import { Router } from '@angular/router';
-
+import { CookieService } from 'ngx-cookie';
 
 @Component({
     selector: 'home',
@@ -17,7 +17,7 @@ export class HomeComponent {
     errorEmail: string;
 
 
-    constructor(private loginService: UserService, private router: Router) {
+    constructor(private loginService: UserService, private router: Router, private cookieService: CookieService) {
 
     }
 
@@ -26,8 +26,9 @@ export class HomeComponent {
             .subscribe(
             (resp: Response) => {
                 this.user = resp.json();
-                
-                
+                this.cookieService.putObject('CurrentUser', this.user);
+                console.log(this.cookieService.get('CurrentUser'));
+
                 if (this.user) {
                     if (this.pwd == this.user.password) {
                         this.router.navigate(['/profil']);

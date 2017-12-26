@@ -13,7 +13,7 @@ import { UserService } from './components/Services/UserService';
 import { Configuration } from './components/Services/Configuration';
 import { BrowserModule } from '@angular/platform-browser';
 import { HomeComponent } from './components/home/home.component';
-
+import { CookieModule } from 'ngx-cookie';
 
 
 @NgModule({
@@ -30,6 +30,7 @@ import { HomeComponent } from './components/home/home.component';
         HttpModule,
         FormsModule,
         BrowserModule,
+        CookieModule.forRoot(),
         RouterModule.forRoot([
             { path: '', component: HomeComponent },
             { path: 'profil', component: ProfilComponent },
@@ -41,7 +42,7 @@ import { HomeComponent } from './components/home/home.component';
     providers: [
         UserService,
         Configuration,
-        
+
     ]
 })
 export class AppModuleShared {
