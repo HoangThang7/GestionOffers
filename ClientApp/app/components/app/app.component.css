@@ -1,0 +1,19 @@
+
+#ProfilInfo {
+    position: relative;
+    top: 50px;
+    left: 100px;
+}
+
+
+#ProfilImage {
+    position: relative;
+    top: 50px;
+    
+}
+
+#BackImage {
+    background-image: url(../Images/Gestion.jpg);
+    background-size: 100%;
+}
+
